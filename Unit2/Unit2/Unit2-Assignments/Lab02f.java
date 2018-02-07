@@ -10,7 +10,10 @@ public class Lab02f
    {
 		//add test cases
 		
-		
+		Line line1 = new Line(9,4,5,6);
+		line1.setCoordinates(9,4,5,6);
+		line1.calculateSlope();
+		line1.print();
 		
 		
 	}

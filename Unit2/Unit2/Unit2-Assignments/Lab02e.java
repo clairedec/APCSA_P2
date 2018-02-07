@@ -10,7 +10,10 @@ public class Lab02e
    {
 		//add test cases
 		
-		
+		Circle circle1 = new Circle();
+		circle1.setRadius(5);
+		circle1.calculateArea();
+		circle1.print();
 		
 	}
 }

@@ -18,9 +18,9 @@ public class Fahrenheit
 		double celsius = 0.0;
 		//add code to convert fahrenheit to celsius
 		
-		celsius = (fahrenheit - 32)* (5/9);
+		celsius = (fahrenheit - 32)* (5.0/9.0);
 		
-		return celsius;
+		return (double)celsius;
 	}
 
 	public void print()
