@@ -13,32 +13,24 @@ public class Prime
 
 	public Prime()
 	{
-		number=0;
 
 
 	}
 
 	public Prime(int num)
 	{
-		setPrime(num);
 
 
 	}
 
 	public void setPrime(int num)
 	{
-		number=num;
 
 
 	}
 
 	public boolean isPrime()
 	{
-		while (number<Math.sqrt(number))
-		if (number / )
-		{
-			return false;
-		}
 
 
 

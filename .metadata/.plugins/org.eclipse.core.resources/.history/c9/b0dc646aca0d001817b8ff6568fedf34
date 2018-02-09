@@ -38,7 +38,7 @@ public class LoopStats
 		int evenCount=0;
 		while (start <= stop)
 		{
-			if(start%2==0)
+			if(i%2==0)
 			{
 				evenCount++;
 			}

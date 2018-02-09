@@ -13,7 +13,6 @@ public class LetterRemover
 
 	public LetterRemover()
 	{
-		
 		//call set
 	}
 
@@ -33,12 +32,11 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String cleaned=sentence;
-		int hold = sentence.indexOf(lookFor);
-		while (hold >=0)
-		{
-			
-		}
-		
+
+
+
+
+
 		return cleaned;
 	}
 

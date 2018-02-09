@@ -13,35 +13,30 @@ public class CharacterAnalyzer
 
 	public CharacterAnalyzer()
 	{
-		theChar=0;
 
 
 	}
 
 	public CharacterAnalyzer(char c)
 	{
-		setChar(c);
+
 
 	}
 
 	public void setChar(char c)
 	{
-		theChar=c;
+
 
 	}
 
 	public char getChar()
 	{
-		return theChar;
+		return '-';
 	}
 
 	public boolean isUpper( )
 	{
-		if (theChar.isUpperCase() == true)
-		{
-			return true;
-		}
-		
+
 
 
 		return false;
@@ -49,10 +44,6 @@ public class CharacterAnalyzer
 
 	public boolean isLower( )
 	{
-		if()
-		{
-			return true;
-		}
 
 
 
@@ -61,10 +52,6 @@ public class CharacterAnalyzer
 	
 	public boolean isNumber( )
 	{
-		if()
-		{
-			return true;
-		}
 
 
 
