@@ -1,0 +1,26 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import static java.lang.System.*;
+
+public class Lab08g
+{
+	public static void main ( String[] args )
+	{
+		//add test cases
+		LoopStats demo1 = new LoopStats(2,10);
+		System.out.println(demo1);
+		
+		LoopStats demo2 = new LoopStats(5,8);
+		System.out.println(demo2);
+		
+		LoopStats demo3 = new LoopStats(2,17);
+		System.out.println(demo3);
+		
+		
+					
+	}
+}

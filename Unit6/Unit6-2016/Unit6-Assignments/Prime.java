@@ -34,31 +34,30 @@ public class Prime
 
 	public boolean isPrime()
 	{
-		while (number<Math.sqrt(number))
-		if (number / )
+		for (int i=2; i<= Math.sqrt(number); i++)
 		{
-			return false;
+			if (number % i == 0 )
+			{
+				return false;
+			}
+
 		}
-
-
-
-
-
-
 
 		return true;
 	}
 
 	public String toString()
 	{
-		String output="";
-
-
-
-
-
-
-
+		String output = "";
+		if (isPrime() == true)
+		{
+			output= number + " is prime.";
+		}
+		else 
+		{
+			output= number + " is not prime.";
+		}
+		
 		return output;
 	}
 }
