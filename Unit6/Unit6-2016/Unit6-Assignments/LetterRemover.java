@@ -13,7 +13,8 @@ public class LetterRemover
 
 	public LetterRemover()
 	{
-		
+		sentence="";
+		lookFor=' ';
 		//call set
 	}
 
@@ -32,18 +33,18 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned=sentence;
+		String cleaned="";
 		int hold = sentence.indexOf(lookFor);
 		while (hold >=0)
 		{
-			
-		}
+			cleaned=sentence.charAt(hold);
+		} 
 		
 		return cleaned;
 	}
 
 	public String toString()
 	{
-		return sentence + " - letter to remove " + lookFor;
+		return sentence + " - letter to remove " + lookFor + removeLetters();
 	}
 }
