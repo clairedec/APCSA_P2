@@ -33,11 +33,13 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned="";
-		int hold = sentence.indexOf(lookFor);
+		String cleaned=sentence;
+		int hold = cleaned.indexOf(lookFor);
 		while (hold >=0)
 		{
-			cleaned=sentence.substring(0, hold)+sentence.substring(hold+1);
+			cleaned=cleaned.substring(0, hold)+cleaned.substring(hold+1);
+			
+			hold=cleaned.indexOf(lookFor);
 		} 
 		
 		return cleaned;

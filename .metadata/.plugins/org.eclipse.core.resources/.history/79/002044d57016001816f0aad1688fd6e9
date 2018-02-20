@@ -1,0 +1,33 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.util.Scanner;
+import static java.lang.System.*;
+
+public class GuessingGame
+{
+	private int upperBound;
+
+	public GuessingGame(int stop)
+	{
+		upperBound=stop;
+	}
+
+	public void playGame()
+	{
+		System.out.println("Enter a number between 1 and " + upperBound);
+		Scanner keyboard = new Scanner(System.in);
+		int num = keyboard.nextInt();
+		
+
+	}
+
+	public String toString()
+	{
+		String output="";
+		return output;
+	}
+}
