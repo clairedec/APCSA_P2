@@ -53,6 +53,21 @@ public class Magpie4
 		{
 			response = transformIWantToStatement(statement);
 		}
+		
+		else if (findKeyword(statement, "I want", 0) >= 0)
+		{
+			
+			String holder = statement.substring(7);
+			response= "Would you really be happy with "  + holder + "?";		
+		}
+		
+		else if (findKeyword(statement, "I", 0) >= 0 && findKeyword(statement, "you", 0) >= 0)
+		{
+			
+			String holder1 = statement.substring(2, statement.length()-4);
+			response= "Why do you "  + holder1 + " me?";		
+		}
+		
 
 		else
 		{
