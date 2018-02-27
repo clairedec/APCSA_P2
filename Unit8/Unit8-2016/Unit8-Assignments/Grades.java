@@ -12,17 +12,17 @@ public class Grades
 {
 	//instance variables
 	private int num;
-	private int[] grade;
+	private double[] grade;
 	
 
 	//constructor
-	public Grades(int nums, int[] grades)
+	public Grades(int nums, double[] grades)
 	{
 		setGrades(nums, grades);
 	}
 
 	//set method
-	public void setGrades(int nums, int[] grades)
+	public void setGrades(int nums, double[] grades)
 	{
 		num=nums;
 		grade=grades;
