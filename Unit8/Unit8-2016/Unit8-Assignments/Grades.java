@@ -31,9 +31,9 @@ public class Grades
 	private double getSum()
 	{
 		double sum=0.0;
-		for (int i=0; i<grade.length-1; i++)
+		for (int i=0; i<grade.length; i++)
 		{
-			sum= sum + i;
+			sum= sum+ grade[i];
 		}
 		return sum;
 	}
@@ -41,7 +41,7 @@ public class Grades
 	public double getAverage()
 	{
 		double average=0.0;
-		average = (double) getSum() / (double) grade.length-1;
+		average = getSum() / (double) grade.length;
 		return average;
 	}
 
@@ -51,13 +51,13 @@ public class Grades
 	{
 		String output="";
 		
-		for (int k = 0; k<grade.length-1; k++)
+		for (int k = 0; k<grade.length; k++)
 		{
 			output= output + "Grade " + k + " : : " + grade[k] + "\n";
 		}
 		
 		output = output + "average = " + getAverage();
-		
+		 
 		return output;
 	}
 

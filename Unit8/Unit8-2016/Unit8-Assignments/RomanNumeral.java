@@ -44,6 +44,22 @@ public class RomanNumeral
 
 	public Integer getNumber()
 	{
+		
+		number=0;
+
+		for (int i=0; i<NUMBERS.length; i++)
+		{
+			while(roman.indexOf(LETTERS[i])==0)
+			{
+				number=number+NUMBERS[i];
+				roman=roman.substring(LETTERS[i].length());
+			}
+			
+		}
+		return number;
+		
+		
+		/*
 		boolean b;
 		b=false;
 		int holder=0;
@@ -88,11 +104,12 @@ public class RomanNumeral
 			b=false;
 		}
 		return number;
-	
+	*/
 	}
 	
 	public String getRoman()
 	{
+		roman="";
 		for (int j=0; j<NUMBERS.length; j++)
 		{
 			if (number >= NUMBERS[j])
