@@ -27,15 +27,36 @@ public class MadLib
 	public MadLib(String fileName)
 	{
 		//load stuff
-		
+		this();
+		loadNouns();
+		loadVerbs();
+		loadAdjectives();
 		
 		
 		try{
-			Scanner file = new Scanner(new File(fileName));
+			Scanner madlib = new Scanner(new File(fileName));
+			while(madlib.hasNext())
+			{
+				String c = madlib.next();
+				if ( c.equals("&"))
+				{
+					System.out.print(getRandomAdjective() + " ");
+				}
+				else if ( c.equals("#"))
+				{
+					System.out.print(getRandomNoun() + " ");
+				}
+				else if ( c.equals("@"))
+				{
+					System.out.print(getRandomVerb()+ " ");
+				}
+				else
+				{
+					System.out.print(c+" ");
+				}
+			}
 		
 		
-		
-
 	
 		
 		}
@@ -49,9 +70,11 @@ public class MadLib
 	public void loadNouns()
 	{
 		try{
-		
-		
-		
+		Scanner myScanner = new Scanner(new File("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit10\\src\\nouns.dat"));
+		while (myScanner.hasNext())
+		{
+			nouns.add(myScanner.next());
+		}
 		
 		
 		}
@@ -64,6 +87,11 @@ public class MadLib
 	public void loadVerbs()
 	{
 		try{
+		Scanner myScanner1 = new Scanner(new File("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit10\\src\\verbs.dat"));
+		while (myScanner1.hasNext())
+		{
+			verbs.add(myScanner1.next());
+		}
 	
 	
 	
@@ -78,9 +106,12 @@ public class MadLib
 	public void loadAdjectives()
 	{
 		try{
-	
-	
-	
+		
+		Scanner myScanner2 = new Scanner(new File("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit10\\src\\adjectives.dat"));
+		while (myScanner2.hasNext())
+		{
+			adjectives.add(myScanner2.next());
+		}
 	
 	
 		}
@@ -91,20 +122,20 @@ public class MadLib
 
 	public String getRandomVerb()
 	{
-	
-		return "";
+		int ver = (int) (Math.random() * verbs.size());
+		return verbs.get(ver);
 	}
 	
 	public String getRandomNoun()
 	{
-		
-		return "";
+		int nou = (int) (Math.random() * nouns.size());
+		return nouns.get(nou);
 	}
 	
 	public String getRandomAdjective()
 	{
-		
-		return "";
+		int adj = (int) (Math.random() * adjectives.size());
+		return adjectives.get(adj);
 	}		
 
 	public String toString()

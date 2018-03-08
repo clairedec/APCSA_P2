@@ -19,8 +19,8 @@ public class Histogram
 
 	public Histogram()
 	{
-
-
+		count= new ArrayList<Integer>();
+		letters= new ArrayList<Character>();
 
 
 	}
@@ -30,10 +30,9 @@ public class Histogram
 
 
 
-
-
-
 		out.println("search letters = "+letters);
+		
+		fileName=fName;
 	}
 
 	public void loadAndAnalyzeFile() throws IOException

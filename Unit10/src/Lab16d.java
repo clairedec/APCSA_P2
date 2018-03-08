@@ -11,7 +11,8 @@ public class Lab16d
 	public static void main( String args[] )
 	{
 		//make a new MadLib
-		System.out.println("5\t9");
-		out.println("\n");
+		
+		
+		MadLib test = new MadLib("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit10\\src\\story.dat");
 	}
 }
