@@ -25,15 +25,14 @@ public class Grades
 	
 	public void setGrades(String gradeList)
 	{
-
-
-
+		int counter=0;
+		
 
 	}
 	
 	public void setGrade(int spot, double grade)
 	{
-
+		grades[spot]=grade;
 
 
 	}
@@ -41,9 +40,10 @@ public class Grades
 	public double getSum()
 	{
 		double sum=0.0;
-
-
-
+		for (int i=0; i<grades.length; i++)
+		{
+			sum+= grades[i];
+		}
 
 		return sum;
 	}
@@ -51,6 +51,13 @@ public class Grades
 	public double getLowGrade()
 	{
 		double low = Double.MAX_VALUE;
+		for (int k=0; k<grades.length-1; k++)
+		{
+			if(grades[k] < grades[k+1] )
+			{
+				low = grades[k+1];
+			}
+		}
 
 
 
@@ -62,7 +69,13 @@ public class Grades
 	public double getHighGrade()
 	{
 		double high = Double.MIN_VALUE;
-
+		for (int j=0; j<grades.length-1; j++)
+		{
+			if(grades[j] > grades[j+1] )
+			{
+				high = grades[j+1];
+			}
+		}
 
 
 

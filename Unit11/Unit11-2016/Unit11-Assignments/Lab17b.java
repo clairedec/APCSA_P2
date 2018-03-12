@@ -20,7 +20,9 @@ public class Lab17b
 			out.print("Enter the times to display :: ");
  			int times = keyboard.nextInt();
 	
+ 			WordPrinter test = new WordPrinter();
 
+			test.printWord(word, times);
 			
 			
 			//call the printWord method
