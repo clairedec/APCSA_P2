@@ -28,15 +28,7 @@ public class Grades
 		int counter=0;
 		int length = Integer.parseInt(gradeList.substring(0,1));
 		grades = new double[length];
-		String justGrades= gradeList.substring(gradeList.indexOf("-")+1);
-		Scanner entry= new Scanner(justGrades);
-		
-		while (entry.hasNext())
-			{
-				double input = entry.nextDouble();
-				setGrade(counter, input);
-				counter++;
-			}
+		String grades= grades.substring(indexOf("-")+1);
 		
 
 	}
@@ -70,6 +62,10 @@ public class Grades
 			}
 		}
 
+
+
+
+
 		return low;
 	}
 	
@@ -84,6 +80,9 @@ public class Grades
 			}
 		}
 
+
+
+
 		return high;
 	}
 	
@@ -95,10 +94,10 @@ public class Grades
 	public String toString()
 	{
 		String output="";
-		for (int i=0; i<grades.length; i++)
-		{
-			output= output + grades[i] + " ";
-		}
+
+
+
+
 
 		return output;
 	}	

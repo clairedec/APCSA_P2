@@ -70,6 +70,10 @@ public class Grades
 			}
 		}
 
+
+
+
+
 		return low;
 	}
 	
@@ -84,6 +88,9 @@ public class Grades
 			}
 		}
 
+
+
+
 		return high;
 	}
 	
@@ -97,8 +104,12 @@ public class Grades
 		String output="";
 		for (int i=0; i<grades.length; i++)
 		{
-			output= output + grades[i] + " ";
+			output= output + grades[i];
 		}
+
+
+
+
 
 		return output;
 	}	

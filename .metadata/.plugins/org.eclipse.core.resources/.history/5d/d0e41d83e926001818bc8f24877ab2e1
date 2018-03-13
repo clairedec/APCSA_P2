@@ -22,8 +22,18 @@ public class Student
 	
 	public Student(String name, String gradeList)
 	{
-		setName(name);
-		setGrades(gradeList);
+		/*int counter=0;
+		int length = Integer.parseInt(gradeList.substring(0,1));
+		grades = new double[length];
+		String justGrades= gradeList.substring(gradeList.indexOf("-")+1);
+		Scanner entry= new Scanner(justGrades);
+		
+		while (entry.hasNext())
+			{
+				double input = entry.nextDouble();
+				setGrade(counter, input);
+				counter++;
+			}*/
 
 
 	}
@@ -37,27 +47,25 @@ public class Student
 	
 	public void setGrades(String gradeList)
 	{
-		Grades test= new Grades(gradeList);
-		myGrades= test;
+		myGrades= gradeList;
 
 	
 	}
 	
 	public void setGrade(int spot, double grade)
 	{
-		myGrades[spot]=grade;
 
 
 	}
 
 	public String getName()
 	{
-		return myName;
+		return "";
 	}
 	
 	public int getNumGrades()
 	{
-		return myGrades;
+		return 0;
 	}
 
 	public double getSum()

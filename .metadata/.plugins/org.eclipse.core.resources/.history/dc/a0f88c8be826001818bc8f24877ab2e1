@@ -70,6 +70,10 @@ public class Grades
 			}
 		}
 
+
+
+
+
 		return low;
 	}
 	
@@ -83,6 +87,9 @@ public class Grades
 				high = grades[j+1];
 			}
 		}
+
+
+
 
 		return high;
 	}
@@ -99,6 +106,10 @@ public class Grades
 		{
 			output= output + grades[i] + " ";
 		}
+
+
+
+
 
 		return output;
 	}	
