@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;gradebook.dat&apos; to &apos;Unit11&apos;&#x0D;&#x0A;- Original project: &apos;Unit11&apos;&#x0D;&#x0A;- Destination element: &apos;Unit11&apos;&#x0D;&#x0A;- Original element: &apos;gradebook.dat&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="=Unit11" element1="Unit11-2016/Unit11-Assignments/Lab19b/gradebook.dat" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1521055088546" units="0" version="1.0"/>
+</session>

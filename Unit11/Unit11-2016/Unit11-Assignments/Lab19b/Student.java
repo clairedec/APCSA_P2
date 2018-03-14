@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
-public class Student
+public class Student implements Comparable
 {
 	private String myName;
 	private Grades myGrades;
@@ -45,7 +45,7 @@ public class Student
 	
 	public void setGrade(int spot, double grade)
 	{
-		myGrades[spot]=grade;
+		myGrades.setGrade(spot, grade);
 
 
 	}
@@ -57,36 +57,56 @@ public class Student
 	
 	public int getNumGrades()
 	{
-		return myGrades;
+		return myGrades.getNumGrades();
 	}
 
 	public double getSum()
 	{
-		return 0.0;
+		return myGrades.getSum();
 	}
 	
 	public double getAverage()
 	{
-		return 0.0;
+		double average = (double) getSum() / (double) getNumGrades();
+		return average;
 	}
 
 	public double getAverageMinusLow()
 	{
-		return 0.0;
+		double averageWithout = (double) (getSum() - getLowGrade()) / (double) (getNumGrades() - 1);
+		return averageWithout;
+	}
+	
+	public int compareTo(Object o)
+	{
+		Student param= (Student)o;
+		if ( getAverage() > param.getAverage())
+		{
+			return 1;
+		}
+		else if (getAverage()<param.getAverage())
+		{
+			return -1;
+		}
+		else
+		{
+			return 0;
+		}
 	}
 	
 	public double getHighGrade()
 	{
-		return 0.0;		
+		return myGrades.getHighGrade();		
 	}
 	
 	public double getLowGrade()
 	{
-		return 0.0;	
+		return myGrades.getLowGrade();	
 	}
 	
 	public String toString()
 	{
-		return "";
+		String output = myName + "=" + myGrades.toString();
+		return output;
 	}	
 }
