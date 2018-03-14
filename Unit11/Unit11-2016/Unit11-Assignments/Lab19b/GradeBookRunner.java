@@ -23,23 +23,31 @@ public class GradeBookRunner
 		int num = keyboard.nextInt();
 		
 		Class test = new Class(name, num);
-		int number = 1; 
+		int number = 0; 
 		
 		do
 		{
-			out.println("Enter the name of the student" + number + ":" );
-			out.println("Enter the grades for " + name + ":");
 			Scanner keyboard1 = new Scanner(System.in);
+
+			out.println("Enter the name of the student" + number + ":" );
+			String stuName = keyboard1.nextLine();
+			out.println("Enter the grades for " + stuName + ":");
 			String inputs = keyboard1.nextLine();
-			test.addStudent(number-1, new Student(name, inputs));
-		}while (number<=num);
-
-
-
-
-
-
-
+			test.addStudent(number, new Student(stuName, inputs));
+			number++;
+		}while (number<num);
+		
+		out.println(test);
+		
+		test.sort();
+		
+		out.println(test);
+		
+		
+		out.println("Failure List: "+ test.getFailureList(70));
+		out.println("Highest Average: "+ test.getStudentWithHighestAverage());
+		out.println("Lowest Average: "+ test.getStudentWithLowestAverage());
+		out.println("Class Average: "+ test.getClassAverage());
 
 
 

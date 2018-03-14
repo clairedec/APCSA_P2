@@ -9,7 +9,7 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
-public class Student implements Comparable
+public class Student implements Comparable<Student>
 {
 	private String myName;
 	private Grades myGrades;
@@ -77,14 +77,13 @@ public class Student implements Comparable
 		return averageWithout;
 	}
 	
-	public int compareTo(Object o)
+	public int compareTo(Student s)
 	{
-		Student param= (Student)o;
-		if ( getAverage() > param.getAverage())
+		if ( getAverage() > s.getAverage())
 		{
 			return 1;
 		}
-		else if (getAverage()<param.getAverage())
+		else if (getAverage()<s.getAverage())
 		{
 			return -1;
 		}
@@ -92,6 +91,14 @@ public class Student implements Comparable
 		{
 			return 0;
 		}
+	}
+	
+	public boolean equal(Student s)
+	{
+		if(s.getAverage() == this.getAverage() && s.getName().equals(this.getName())){
+			return true;
+		}
+		return false;
 	}
 	
 	public double getHighGrade()
