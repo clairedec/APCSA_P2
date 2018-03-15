@@ -13,36 +13,20 @@ public class Monster implements Comparable
 	private int myAge;
 
 	//write a default Constructor
-	public Monster()
-	{
-		myWeight=0;
-		myHeight=0;
-		myAge=0;
-	}
 
 
 
 	//write an initialization constructor with an int parameter ht
-	public Monster(int ht)
-	{
-		
-	}
+
 
 
 	//write an initialization constructor with int parameters ht and wt
-	public Monster(int ht, int wt)
-	{
-		
-	}
 
 
 
 
 	//write an initialization constructor with int parameters ht, wt, and age
-	public Monster(int ht, wt, age)
-	{
-		
-	}
+
 
 
 	//modifiers - write set methods for height, weight, and age
