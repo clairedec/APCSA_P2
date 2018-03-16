@@ -19,7 +19,7 @@ public class Word implements Comparable<Word>
 	
 	public int getLength()
 	{
-		return word.length(); 
+		return word.length();
 	}
 	
 

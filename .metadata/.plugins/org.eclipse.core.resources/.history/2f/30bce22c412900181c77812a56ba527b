@@ -91,7 +91,7 @@ public class Monster implements Comparable
 	//creates a new copy of this Object
 	public Object clone()
 	{
-	   return new Monster(getHeight(), getWeight(), getAge());
+	   return new Monster();
 	}
 
 	public boolean equals( Object obj )
