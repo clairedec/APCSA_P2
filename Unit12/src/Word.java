@@ -34,9 +34,10 @@ public class Word implements Comparable<Word>
 		{
 			return -1;
 		}
-
-		
-		return 0;
+		else
+		{
+			return toString().compareTo(test.toString());
+		}
 	}
 
 	public String toString()
