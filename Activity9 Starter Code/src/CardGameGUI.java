@@ -273,7 +273,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 		str += ".GIF";
 		return str;
 	}
-
+////study this! how the cards are selected and creating a list how list is passed
 	/**
 	 * Respond to a button click (on either the "Replace" button
 	 * or the "Restart" button).
