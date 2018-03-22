@@ -13,5 +13,14 @@ public class Lab21i
 {
 	public static void main( String args[] ) throws IOException
 	{
+		Scanner file = new Scanner(new File("lab21i.dat"));
+		
+		int size = file.nextInt();
+		file.nextInt();
+		
+		while(file.hasNext())
+		{
+			System.out.print([] [] );
+		}
 	}
 }

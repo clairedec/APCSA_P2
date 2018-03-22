@@ -31,6 +31,15 @@ public class AtCounter
 
 		//add in recursive code to count up the # of @s connected
 		//start checking at spot [r,c]
+		if (r>=0 && c>=0 && r<10 && c<10 && atMat[r][c] =='@')
+		{
+			atCount++;
+			atMat[r][c] = '-';
+			countAts(r-1, c);
+			countAts(r, c-1);
+			countAts(r+1, c);
+			countAts(r, c+1);
+		}
 
 
 		return 0;

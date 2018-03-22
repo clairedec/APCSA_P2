@@ -21,12 +21,27 @@ public class Maze
 
 	public Maze(int size, String line)
 	{
-
+		maze[size][size];
+		for(int i=0; i<size; i++)
+		{
+			
+		}
 
 	}
 
 	public boolean hasExitPath(int r, int c)
 	{
+		if (r>=0 && c>=0 && r<size && c<size && maze[r][c] ==1)
+		{
+			return hasExitPath(r, c);
+		}
+		else
+		{
+			hasExitPath(r-1, c);
+			hasExitPath(r, c-1);
+			hasExitPath(r+1, c);
+			hasExitPath(r, c+1);
+		}
 
 		return false;
 	}
@@ -34,8 +49,7 @@ public class Maze
 	public String toString()
 	{
 		String output="";
-
-
+		output = 
 
 
 
