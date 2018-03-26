@@ -16,11 +16,12 @@ public class Lab21i
 		Scanner file = new Scanner(new File("lab21i.dat"));
 		
 		int size = file.nextInt();
-		file.nextInt();
+		file.nextInt();  
 		
 		while(file.hasNext())
 		{
-			System.out.print([] [] );
+			Maze test = new Maze(size, file.nextLine());
+			System.out.print(test);
 		}
 	}
 }

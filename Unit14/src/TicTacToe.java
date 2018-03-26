@@ -13,7 +13,7 @@ public class TicTacToe
 
 	public TicTacToe()
 	{
-
+		mat= new char[0][0];
 
 	}
 
