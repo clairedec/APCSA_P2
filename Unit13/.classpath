@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Unit13-2016/Unit13-Assignments"/>
+	<classpathentry excluding="slideExamples/" kind="src" path="Unit13-2016/Unit13-InstructionExamples"/>
+	<classpathentry kind="src" path="Unit13-2016/Unit13-InstructionExamples/slideExamples"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
