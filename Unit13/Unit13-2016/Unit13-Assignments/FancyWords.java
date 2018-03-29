@@ -21,18 +21,13 @@ public class FancyWords
 
 	public void setWords(String sentence)
 	{
-
+		
 	}
 
 	public String toString()
 	{
 		String output="";
 		int max = Integer.MIN_VALUE;
-
-
-
-
-
 
 		return output+"\n\n";
 	}

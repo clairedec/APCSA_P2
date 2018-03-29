@@ -25,13 +25,13 @@ public class QuickSort
 		if( low <high)
 		{
 			int split = partition ( list, low, high);
+			
+			System.out.print("pass " + passCount + " " + Arrays.toString(list) + "\n");
+			passCount++;
+			
 			quickSort(list, low, split);
 			quickSort(list, split + 1,high);
-			
 		}
-
-
-
 
 	}
 
@@ -44,7 +44,15 @@ public class QuickSort
 		
 		while(bot<top)
 		{
-			
+			while(list[++bot].compareTo(pivot)<0);
+			while(list[--top].compareTo(pivot)>0);
+			if(bot>=top)
+			{
+				return top;
+			}	
+			Comparable hold = list[top];
+			list[top]=list[bot];
+			list[bot]=hold;
 		}
 		return 0;
 	}
@@ -52,49 +60,3 @@ public class QuickSort
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
