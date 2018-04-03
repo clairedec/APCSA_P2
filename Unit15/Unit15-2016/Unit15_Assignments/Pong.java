@@ -22,6 +22,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
+	private int rightScore;
+	private int leftScore;
 
 
 	public Pong()
@@ -74,16 +76,25 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		
 		//see if the ball hits the top or bottom wall 
-
+	//	if ( ball.didCollideBottom(wall) || ball.didCollideTop(wall))
+		{
+			ball.setY(-ball.getYSpeed());
+		}
 
 
 
 		//see if the ball hits the left paddle
-		
+		if ( ball.didCollideLeft(leftPaddle))
+		{
+			ball.setXSpeed(-ball.getXSpeed());
+		}
 		
 		
 		//see if the ball hits the right paddle
-		
+		if ( ball.didCollideRight(rightPaddle))
+		{
+			ball.setXSpeed(-ball.getXSpeed());
+		}
 		
 		
 
