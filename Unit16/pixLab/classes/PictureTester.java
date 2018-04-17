@@ -77,7 +77,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -91,18 +91,41 @@ public class PictureTester
     arms.explore();
   }
   
+  public static void testMirrorGull()
+  {
+    Picture gull = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
+  
+  public static void testMirrorDiagonal()
+  {
+    Picture beach = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\640x480.jpg");
     canvas.createCollage();
     canvas.explore();
+  }
+  
+  public static void testCopy(Picture Pic, int begRow, int begCol)
+  {
+    Picture caterpillar = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\caterpillar.jpg");
+    caterpillar.copy(Pic, begRow, begCol);
+    caterpillar.explore();
   }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -120,14 +143,15 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
-    testFixUnderwater();
-    //testMirrorVertical();
+    //testFixUnderwater();
+    testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+    Picture caterpillar = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\caterpillar.jpg");
+    //testCopy(caterpillar, 30, 50);
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
