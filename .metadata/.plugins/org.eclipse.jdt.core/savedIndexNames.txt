@@ -18,5 +18,4 @@ INDEX VERSION 1.130+C:\Users\leec5854\Desktop\APCSA_P2\.metadata\.plugins\org.ec
 1862472308.index
 3406353749.index
 3318963559.index
-1752094317.index
 577466464.index
