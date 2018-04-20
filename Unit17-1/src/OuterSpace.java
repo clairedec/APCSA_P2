@@ -25,12 +25,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private ArrayList<Alien> aliens = new ArrayList<Alien>();
 
 	
-	/* uncomment once you are ready for this part
-	 *
+	
    private AlienHorde horde;
-	private Bullets shots;
-	*/
-
+	//private Bullets shots;
+	//*/
+   
 	private boolean[] keys;
 	private BufferedImage back;
 
@@ -45,6 +44,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		aliens.add(new Alien(300,300,50,50,5));
 		aliens.add(new Alien(200,200,50,50,5));
 		ship= new Ship(100,100, 50, 50, 5);
+		horde = new AlienHorde(10);
 		
 		//Ship, Alien
 
@@ -78,8 +78,14 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
 		ship.draw(graphToBack);
-		aliens.get(i).draw(graphToBack);
-		alienTwo.draw(graphToBack);
+		/*for(int l=0;l<aliens.size();l++)
+		{
+			aliens.get(l).draw(graphToBack);
+		}*/
+		horde.drawEmAll(graphToBack);
+		
+		horde.moveEmAll();
+		
 		
 		for(int i=0; i<ammos.size(); i++)
 		{
