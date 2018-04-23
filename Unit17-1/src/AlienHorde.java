@@ -41,27 +41,38 @@ public class AlienHorde
        
 	public void moveEmAll()
 	{
-		for(int j=0; j<aliens.size(); j++)
+
+		for(int i=0; i<aliens.size(); i++)
 		{
-			if(aliens.get(j).getX()>700)
+			
+			aliens.get(i).move("LEFT");
+			if(aliens.get(i).getX() >= 700 || aliens.get(i).getX() <= 50)
 			{
-				aliens.get(j).move("RIGHT");
-				//aliens.get(j).move("DOWN");
-			}
-			else if(aliens.get(j).getX()<100)
-			{
-				aliens.get(j).move("LEFT");
-			}
-			else
-			{
-				aliens.get(j).move("LEFT");
-			}
+				aliens.get(i).setY(aliens.get(i).getY() + 50);
+				aliens.get(i).setSpeed(-aliens.get(i).getSpeed());
+			} 
+
 		}
 	}
 
 	public void removeDeadOnes(List<Ammo> shots)
 	{
-		
+		for(int j=0;j<shots.size();j++)
+		{
+			for(int k =0; k<aliens.size(); k++)
+			{
+				
+				if (shots.get(j).getY() < aliens.get(k).getY()-aliens.get(k).getHeight() && (shots.get(j).getX()+ shots.get(j).getWidth() > aliens.get(k).getX()) && (shots.get(j).getX()+ shots.get(j).getWidth() > aliens.get(k).getX()) && shots.get(j).getX() < aliens.get(k).getX()+aliens.get(k).getWidth())
+				{
+					aliens.remove(k);
+					shots.remove(j);
+					
+
+				}
+			}
+			
+		}
+
 	}
 
 	public String toString()

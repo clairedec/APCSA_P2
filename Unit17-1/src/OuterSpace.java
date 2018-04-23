@@ -85,6 +85,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.drawEmAll(graphToBack);
 		
 		horde.moveEmAll();
+		horde.removeDeadOnes(ammos);
 		
 		
 		for(int i=0; i<ammos.size(); i++)
@@ -131,6 +132,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 				{
 					aliens.remove(k);
 					ammos.remove(j);
+					System.out.print("hi");
 				}
 			}
 			
