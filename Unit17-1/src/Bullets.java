@@ -43,7 +43,7 @@ public class Bullets
 		}
 	}
 
-	public void cleanEmUp()
+	/*public void cleanEmUp()
 	{
 		for(int j=0;j<ammo.size();j++)
 		{
@@ -60,7 +60,7 @@ public class Bullets
 			}
 			
 		}
-	}
+	}*/
 
 	public List<Ammo> getList()
 	{

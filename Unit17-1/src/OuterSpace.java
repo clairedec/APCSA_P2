@@ -123,20 +123,24 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 		
-		for(int j=0;j<ammos.size();j++)
+		/*for(int j=0;j<ammos.size();j++)
 		{
 			for(int k =0; k<aliens.size(); k++)
 			{
-				
-				if (ammos.get(j).getY() < aliens.get(k).getY()-aliens.get(k).getHeight() && (ammos.get(j).getX()+ ammos.get(j).getWidth() > aliens.get(k).getX()) && (ammos.get(j).getX()+ ammos.get(j).getWidth() > aliens.get(k).getX()) && ammos.get(j).getX() < aliens.get(k).getX()+aliens.get(k).getWidth())
+				//check y
+				if(ammos.get(j).getY() <= aliens.get(k).getY()+ aliens.get(k).getHeight() 
+						&& (ammos.get(j).getX() + ammos.get(j).getWidth() > aliens.get(k).getX()) 
+						&& ammos.get(j).getX() < aliens.get(k).getX()+aliens.get(k).getWidth()
+						&& ammos.get(j).getY() > aliens.get(k).getY()-aliens.get(k).getHeight())	
 				{
+					
 					aliens.remove(k);
 					ammos.remove(j);
-					System.out.print("hi");
+					System.out.print("hi"); 
 				}
 			}
 			
-		}
+		}*/
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}

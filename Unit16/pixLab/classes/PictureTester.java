@@ -107,6 +107,15 @@ public class PictureTester
     beach.explore();
   }
   
+public static void testBlur(int x, int y, int w, int h, int n)
+  {
+     Picture redMoto = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\redMotorcycle.jpg");
+     for (int i = 0; i<n; i++){
+        redMoto.blur(x,y,w,h);
+      }
+      redMoto.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -144,13 +153,14 @@ public class PictureTester
     //testNegate();
     //testGrayscale();
     //testFixUnderwater();
-    testMirrorVertical();
-    //testMirrorTemple();
+    //testMirrorVertical();
+    // testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
+    testBlur(190,160,20,20,10);
     //testCollage();
-    Picture caterpillar = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\caterpillar.jpg");
+    //Picture caterpillar = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\caterpillar.jpg");
     //testCopy(caterpillar, 30, 50);
     //testEdgeDetection();
     //testEdgeDetection2();

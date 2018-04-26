@@ -25,7 +25,9 @@ public class Picture extends SimplePicture
     /* not needed but use it to show students the implicit call to super()
      * child constructors always call a parent constructor 
      */
+	  
     super();  
+    
   }
   
   /**
@@ -36,6 +38,8 @@ public class Picture extends SimplePicture
   {
     // let the parent class handle this fileName
     super(fileName);
+    System.out.println("Claire Lee" + "\n" + "Period 2" + "\n"+ "Computer #17" + "\n" + "4/24/18");
+   
   }
   
   /**
@@ -228,7 +232,6 @@ public class Picture extends SimplePicture
     int mirrorPoint = 276;
     Pixel leftPixel = null;
     Pixel rightPixel = null;
-    int count = 0;
     Pixel[][] pixels = this.getPixels2D();
     
     // loop through the rows
@@ -325,6 +328,68 @@ public class Picture extends SimplePicture
 	  }
 	  
   }
+  
+  public void blur(int x, int y, int w, int h)
+  {
+	/*  //average red blue and gren of surrounding ones
+	    Pixel[][] pixels = this.getPixels2D();
+	    Pixel topRightPixel  = null;
+		Pixel bottomLeftPixel = null;
+		Pixel topPixel = null;
+		Pixel bottomPixel=null;
+		Pixel leftPixel = null;
+		Pixel rightPixel = null;
+		Pixel bottomRightPixel  = null;
+		Pixel topLeftPixel = null;
+
+		   for ( x = 0; x < h; x++)
+		    {
+		      for ( y = 0; y < w ; y++)
+		      {
+	    	topRightPixel=pixels[x][y+1];
+			//bottomLeftPixel=pixels[col][row];
+		    	  //topRightPixel = [rowArray + 1][pixelObj-1];
+	    	
+	    	 for (Pixel[] rowArray : pixels)
+			    {
+			      for (Pixel pixelObj : rowArray)
+			      {
+			    	  pixelObj=  pixelObj.setBlue(topRightPixel.getBlue()+ bottomLeftPixel.getBlue() + topPixel.getBlue()/9)
+	        		
+	        		pixelObj = pixelObj.setGreen((topLeftPixel.getGreen()+ bottomRightPixel.getGreen() + leftPixel.getGreen()+topRightPixel.getGreen()+bottomLeftPixel.getGreen())/9);
+		        		pixelObj = pixelObj.setRed((topLeftPixel.getRed()+ bottomRightPixel.getRed() + leftPixel.getRed()+topRightPixel.getRed()+bottomLeftPixel.getRed())/9);
+
+	        }
+			    }
+		      }*/
+	    }	 
+		   
+		/*    Pixel[][] pixels = this.getPixels2D();
+		    long tot = 0;
+		    int num=0;
+		    for (Pixel[] rowArray : pixels)
+		    {
+		      for (Pixel pixelObj : rowArray)
+		      {
+		        int avg = (pixelObj.getBlue() + pixelObj.getRed() + pixelObj.getGreen() ) / 3;
+		        tot +=avg;
+		        num++;
+		       }
+		    }
+		    int avg = (int) (tot=tot/num);
+		    for ( x = 0; x < h; x++)
+		    {
+		      for ( y = 0; y < w ; y++)
+		      {
+		        pixelObj.setColor((pixelObj.getBlue()/9));
+		        pixelObj.setGreen((pixelObj.getGreen()-avg));
+		        pixelObj.setRed((pixelObj.getRed()-avg));
+		       }
+		    } */
+
+  //}
+  
+
   
   
   /** copy from the passed fromPic to the

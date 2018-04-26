@@ -62,17 +62,22 @@ public class AlienHorde
 			for(int k =0; k<aliens.size(); k++)
 			{
 				
-				if (shots.get(j).getY() < aliens.get(k).getY()-aliens.get(k).getHeight() && (shots.get(j).getX()+ shots.get(j).getWidth() > aliens.get(k).getX()) && (shots.get(j).getX()+ shots.get(j).getWidth() > aliens.get(k).getX()) && shots.get(j).getX() < aliens.get(k).getX()+aliens.get(k).getWidth())
+				if(shots.get(j).getY() <= aliens.get(k).getY()+ aliens.get(k).getHeight() 
+						&& (shots.get(j).getX() + shots.get(j).getWidth() > aliens.get(k).getX()) 
+						&& shots.get(j).getX() < aliens.get(k).getX()+aliens.get(k).getWidth()
+						&& shots.get(j).getY() > aliens.get(k).getY()-aliens.get(k).getHeight())				
 				{
 					aliens.remove(k);
 					shots.remove(j);
+					
 					
 
 				}
 			}
 			
 		}
-
+		
+		
 	}
 
 	public String toString()
