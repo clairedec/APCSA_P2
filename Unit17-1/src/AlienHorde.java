@@ -69,15 +69,19 @@ public class AlienHorde
 				{
 					aliens.remove(k);
 					shots.remove(j);
-					
-					
-
+					return;
 				}
 			}
 			
 		}
-		
-		
+	}
+	
+	public void remove(Alien alien){
+		aliens.remove(alien);
+	}
+	
+	public List <Alien> getList(){
+		return aliens;
 	}
 
 	public String toString()

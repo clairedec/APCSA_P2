@@ -15,6 +15,7 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
@@ -23,10 +24,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienTwo;
 	private ArrayList<Ammo> ammos = new ArrayList<Ammo>();
 	private ArrayList<Alien> aliens = new ArrayList<Alien>();
-
-	
-	
-   private AlienHorde horde;
+	private Pack pack = new Pack();
+	private boolean packVisible =true;
+	private long startTime=System.currentTimeMillis();
+	private String[] directions = {"RIGHT", "LEFT", "UP", "DOWN"};
+	private String direction = "UP";
+	private int timer = 50;
+	private AlienHorde horde;
 	//private Bullets shots;
 	//*/
    
@@ -87,6 +91,32 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.moveEmAll();
 		horde.removeDeadOnes(ammos);
 		
+		if(packVisible){
+			pack.draw(graphToBack);			
+		}
+		if(!packVisible){
+			for(int i = 0; i<horde.getList().size(); i++){
+				Alien alien = horde.getList().get(i);
+				if(ship.getY() <= alien.getY()+ alien.getHeight() 
+				&& (ship.getX() + ship.getWidth() > alien.getX()) 
+				&& ship.getX() < alien.getX()+alien.getWidth()
+				&& ship.getY() > alien.getY()-alien.getHeight()){
+					horde.remove(alien);
+				}
+			}
+		}
+		
+		
+		if(pack.collision(ship)){
+			packVisible=false;
+		}
+		
+		long elapsedTime = (new Date()).getTime()-startTime;
+		if(elapsedTime%timer >=-5 && elapsedTime%timer<=5){
+			int random = (int) (Math.random()*directions.length);
+			direction = directions[random];
+		}
+		pack.move(direction);
 		
 		for(int i=0; i<ammos.size(); i++)
 		{
