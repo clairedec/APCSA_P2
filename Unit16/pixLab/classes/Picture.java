@@ -331,8 +331,9 @@ public class Picture extends SimplePicture
   
   public void blur(int x, int y, int w, int h)
   {
-	/*  //average red blue and gren of surrounding ones
+	 //average red blue and gren of surrounding ones
 	    Pixel[][] pixels = this.getPixels2D();
+	    Pixel center = null;
 	    Pixel topRightPixel  = null;
 		Pixel bottomLeftPixel = null;
 		Pixel topPixel = null;
@@ -341,11 +342,34 @@ public class Picture extends SimplePicture
 		Pixel rightPixel = null;
 		Pixel bottomRightPixel  = null;
 		Pixel topLeftPixel = null;
-
-		   for ( x = 0; x < h; x++)
+		
+		for ( int r =x ; r < x+w; r++)
+		{
+			for ( int c =y; c<y+h ; c++)
 		    {
-		      for ( y = 0; y < w ; y++)
-		      {
+				center=pixels[r][c];
+				topRightPixel = pixels[r+1][c+1];
+				bottomLeftPixel = pixels[r-1][c-1];
+				topPixel = pixels[r+1][c];
+				bottomPixel = pixels[r-1][c];
+				leftPixel=pixels[r][c-1];
+				rightPixel=pixels[r][c+1];
+				bottomRightPixel=pixels[r-1][c+1];
+				topLeftPixel=pixels[r+1][c-1];
+				
+				center.setBlue((topRightPixel.getBlue()+ bottomLeftPixel.getBlue() + topPixel.getBlue() + bottomPixel.getBlue()+ leftPixel.getBlue() + rightPixel.getBlue()+bottomRightPixel.getBlue()+topLeftPixel.getBlue())/8);
+				center.setGreen((topRightPixel.getGreen()+ bottomLeftPixel.getGreen() + topPixel.getGreen() + bottomPixel.getGreen()+ leftPixel.getGreen() + rightPixel.getGreen()+bottomRightPixel.getGreen()+topLeftPixel.getGreen())/8);
+				center.setRed((topRightPixel.getRed()+ bottomLeftPixel.getRed() + topPixel.getRed() + bottomPixel.getRed()+ leftPixel.getRed() + rightPixel.getRed()+bottomRightPixel.getRed()+topLeftPixel.getRed())/8);
+ 		
+	        }
+			    
+		}
+	  
+	  /*
+		for ( x = 0; x < h; x++)
+		{
+			for ( y = 0; y < w ; y++)
+		    {
 	    	topRightPixel=pixels[x][y+1];
 			//bottomLeftPixel=pixels[col][row];
 		    	  //topRightPixel = [rowArray + 1][pixelObj-1];
@@ -467,6 +491,59 @@ public class Picture extends SimplePicture
     }
   }
   
+  public void encode(Picture messagePict)
+  {
+
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  currPixel = currPixels[row][col];
+			  if ((currPixel.getRed()+currPixel.getGreen()) % 2 == 1)
+				  currPixel.setGreen(currPixel.getGreen() - 1);
+			  messagePixel = messagePixels[row][col];
+			  if (messagePixel.colorDistance(Color.BLACK) < 50)
+			  {
+				  currPixel.setGreen(currPixel.getGreen() - 1);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+  	}
+  
+  	public Picture decode()
+  	{
+  		Pixel[][] pixels = this.getPixels2D();
+  		int height = this.getHeight();
+  		int width = this.getWidth();
+  		Pixel currPixel = null;
+
+  		Pixel messagePixel = null;
+  		Picture messagePicture = new Picture(height,width);
+  		Pixel[][] messagePixels = messagePicture.getPixels2D();
+  		int count = 0;
+  		for (int row = 0; row < this.getHeight(); row++)
+  		{
+  			for (int col = 0; col < this.getWidth(); col++)
+  			{
+  				currPixel = pixels[row][col];
+  				messagePixel = messagePixels[row][col];
+  				if ((currPixel.getRed()+currPixel.getGreen()) % 2 == 1)
+  				{
+  					messagePixel.setColor(Color.BLACK);
+  					count++;
+  				}
+  			}
+  		}
+  		System.out.println(count);
+  		return messagePicture;
+  	}
   
   /* Main method for testing - each class in Java can have a main 
    * method 

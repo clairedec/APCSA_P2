@@ -8,6 +8,9 @@
  */
 public class PictureTester
 {
+	
+    private static Picture pic = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\beach.jpg");
+
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
@@ -139,6 +142,18 @@ public static void testBlur(int x, int y, int w, int h, int n)
     swan.explore();
   }
   
+  public static void testEncode()
+  {
+    pic.explore();
+    pic.encode(new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\msg.jpg"));
+    pic.explore();
+  }
+  
+  public static void testDecode()
+  {
+    pic.decode().explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -146,6 +161,8 @@ public static void testBlur(int x, int y, int w, int h, int n)
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
+	  testEncode();
+	  testDecode();
     //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
@@ -158,7 +175,7 @@ public static void testBlur(int x, int y, int w, int h, int n)
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    testBlur(190,160,20,20,10);
+    //testBlur(190,160,20,20,10);
     //testCollage();
     //Picture caterpillar = new Picture("C:\\Users\\leec5854\\Desktop\\APCSA_P2\\Unit16\\pixLab\\images\\caterpillar.jpg");
     //testCopy(caterpillar, 30, 50);

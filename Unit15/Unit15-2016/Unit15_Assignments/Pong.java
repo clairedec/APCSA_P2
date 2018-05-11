@@ -14,27 +14,42 @@ import java.awt.event.KeyEvent;
 import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
+import static java.lang.Character.*;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.awt.event.ActionListener;
 
 public class Pong extends Canvas implements KeyListener, Runnable
 {
 	private Ball ball;
-	private Paddle leftPaddle;
-	private Paddle rightPaddle;
+	//private Paddle leftPaddle;
+	//private Paddle rightPaddle;
+	private Paddle newPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	private int rightScore;
-	private int leftScore;
+	//private int rightScore;
+	//private int leftScore;
+	private ArrayList<Block> moreBlock = new ArrayList<Block>();
 
 
 	public Pong()
 	{
 		//set up all variables related to the game
 		
-		ball= new Ball();
-		leftPaddle= new Paddle(100, 100 , 20, 80, 3);
-		rightPaddle= new Paddle(600, 100, 20, 80, 3);
-
-
+		ball= new Ball(300,300,10,10);
+		//leftPaddle= new Paddle(100, 100 , 20, 80, 3);
+		//rightPaddle= new Paddle(600, 100, 20, 80, 3);
+		newPaddle = new Paddle(300,300,40,40,3);
+		
+		int x = 50;
+		int y = 
+		for(int i=0; i<size; i++)
+		{
+			moreBlock.add(new Block(x, y, 50, 20, Color.));
+			x += 50;
+		}
+		
+		
 		keys = new boolean[4];
 
     
@@ -64,22 +79,27 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		Graphics graphToBack = back.createGraphics();
 		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(400, 0, 200, 100);
-		graphToBack.setColor(Color.BLACK);
-		graphToBack.drawString(" left score: " + leftScore, 200, 20);
-		graphToBack.drawString(" right score: " + rightScore, 200, 40);
-		Block top = new Block(0,0,800,1, Color.BLACK);
-		Block bottom = new Block(0,500,800,1, Color.BLACK);
+		//graphToBack.setColor(Color.BLACK);
+		//graphToBack.drawString(" left score: " + leftScore, 200, 20);
+		//graphToBack.drawString(" right score: " + rightScore, 200, 40);
+		Block top = new Block(0,0,800,20, Color.BLACK);
+		Block bottom = new Block(0,542,800,20, Color.BLACK);
+		Block left= new Block(0,0,20,800,Color.BLACK);
+		Block right = new Block(765,0,20,800,Color.BLACK);
 		top.draw(graphToBack);
 		bottom.draw(graphToBack);
+		left.draw(graphToBack);
+		right.draw(graphToBack);
 		ball.moveAndDraw(graphToBack);
-		leftPaddle.draw(graphToBack);
-		rightPaddle.draw(graphToBack);
+		//leftPaddle.draw(graphToBack);
+		//rightPaddle.draw(graphToBack);
+		newPaddle.draw(graphToBack);
 
 
 		//see if ball hits left wall or right wall
 		
 		
-		if(!(ball.getX()>=100 && ball.getX()<=600))
+		/*if(!(ball.getX()>=100 && ball.getX()<=600))
 		{
 
 			
@@ -94,7 +114,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			graphToBack.clearRect(0, 0, 800, 800);
 			ball = new Ball();
 			update(graphToBack);
-		}
+		}*/
 		
 		
 
@@ -105,27 +125,45 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.setY(-ball.getYSpeed());
 		}*/
 		
-		if(ball.didCollideBottom(bottom))
+		if(ball.didCollideBottom(bottom ))
 		{
 			ball.setYSpeed(-ball.getYSpeed());
 		}
+		
 		if(ball.didCollideTop(top)){
 			ball.setYSpeed(-ball.getYSpeed());
 		}
+		if(ball.didCollideLeft(left)){
+			ball.setXSpeed(-ball.getXSpeed());
+		}
+		if(ball.didCollideRight(right)){
+			ball.setXSpeed(-ball.getXSpeed());
+		}
+
 
 
 
 		//see if the ball hits the left paddle
-		if ( ball.didCollideLeft(leftPaddle))
+		if ( ball.didCollideLeft(newPaddle))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
 		}
 		
 		
 		//see if the ball hits the right paddle
-		if ( ball.didCollideRight(rightPaddle))
+		if ( ball.didCollideRight(newPaddle))
 		{
 			ball.setXSpeed(-ball.getXSpeed());	
+		}
+		
+		if ( ball.didCollideTop(newPaddle))
+		{
+			ball.setYSpeed(-ball.getYSpeed());	
+		}
+		
+		if ( ball.didCollideBottom(newPaddle))
+		{
+			ball.setYSpeed(-ball.getYSpeed());	
 		}
 		
 		
@@ -134,23 +172,23 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//see if the paddles need to be moved
 		
 		ball.moveAndDraw(graphToBack);
-		leftPaddle.draw(graphToBack);
+		newPaddle.draw(graphToBack);
 		
 		if(keys[0]==true)
 		{
-			leftPaddle.moveDownAndDraw(graphToBack);
+			newPaddle.moveDownAndDraw(graphToBack);
 		}
 		if(keys[1]==true)
 		{
-			leftPaddle.moveUpAndDraw(graphToBack);
+			newPaddle.moveUpAndDraw(graphToBack);
 		}
 		if(keys[2]==true)
 		{
-			rightPaddle.moveDownAndDraw(graphToBack);
+			newPaddle.moveLeftAndDraw(graphToBack);
 		}
 		if(keys[3]==true)
 		{
-			rightPaddle.moveUpAndDraw(graphToBack);
+			newPaddle.moveRightAndDraw(graphToBack);
 		}
 		
 
