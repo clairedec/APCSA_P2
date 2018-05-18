@@ -505,11 +505,11 @@ public class Picture extends SimplePicture
 		  {
 			  currPixel = currPixels[row][col];
 			  if ((currPixel.getRed()+currPixel.getGreen()) % 2 == 1)
-				  currPixel.setGreen(currPixel.getGreen() - 1);
+				currPixel.setGreen(currPixel.getGreen() - 1);
 			  messagePixel = messagePixels[row][col];
 			  if (messagePixel.colorDistance(Color.BLACK) < 50)
 			  {
-				  currPixel.setGreen(currPixel.getGreen() - 1);
+				  currPixel.setGreen(currPixel.getGreen() + 1);
 				  count++;
 			  }
 		  }

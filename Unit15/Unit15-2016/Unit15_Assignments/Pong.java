@@ -29,7 +29,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private BufferedImage back;
 	//private int rightScore;
 	//private int leftScore;
-	private ArrayList<Block> moreBlock = new ArrayList<Block>();
+	private ArrayList<Block> blocks = new ArrayList<Block>();
+	private ArrayList<Color> colors = new ArrayList<Color>();
+	private int level =0;
+	private int score = 0;
 
 
 	public Pong()
@@ -40,14 +43,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//leftPaddle= new Paddle(100, 100 , 20, 80, 3);
 		//rightPaddle= new Paddle(600, 100, 20, 80, 3);
 		newPaddle = new Paddle(300,300,40,40,3);
+		colors.add(Color.GREEN);
+		colors.add(Color.RED);
+		colors.add(Color.BLUE);
+		colors.add(Color.YELLOW);	
 		
-		int x = 50;
-		int y = 
-		for(int i=0; i<size; i++)
-		{
-			moreBlock.add(new Block(x, y, 50, 20, Color.));
-			x += 50;
-		}
 		
 		
 		keys = new boolean[4];
@@ -63,9 +63,113 @@ public class Pong extends Canvas implements KeyListener, Runnable
    public void update(Graphics window){
 	   paint(window);
    }
+   
+   public void buildBlocks(int level)
+   {
+	   if(level ==1)
+	   {
+		    int x = 20;
+			int y = 20;
+			int color=0;
+			
+			for(int i=0; i<15; i++)
+			{
+				blocks.add(new Block(x, y, 50, 30, colors.get(color)));
+				color++;
+				if(color == 4)
+				{
+					color=0; 
+				}
+				x += 50;
+			}
+				
+			x=x-55;
+			
+			y += 30;
+			for(int i=0; i<16; i++)
+			{
+				blocks.add(new Block(x, y, 50, 31, colors.get(color)));
+				color++;
+				if(color == 4)
+				{
+					color=0; 
+				}
+				y+=31;
+			}
+			
+			y=y-33;
+			x  -= 50;
+			for(int i = 0; i<14; i++)
+			{
+				blocks.add(new Block(x, y, 50, 30, colors.get(color)));
+				color++;
+				if(color == 4)
+				{
+					color=0; 
+				}
+				x -= 50;
+			}
+			
+			y  -= 30;
+			x=x+55;
+			
+			for(int i = 0; i<15; i++)
+			{
+				blocks.add(new Block(x, y, 50, 31, colors.get(color)));
+				color++;
+				if(color == 4)
+				{
+					color=0; 
+				}
+				y -= 31;
+			}
+	   }
+	   
+	   if(level==2)
+	   {
+
+				int x = 140;
+				int y = 105;
+				
+				for(int i=0; i<10; i++)
+				{
+					blocks.add(new Block(x, y, 50, 30, new Color((int)(255.0*Math.random()), (int)(255.0*Math.random()), (int)(255.0*Math.random()))));
+					x += 50;	
+				}
+					
+				x=x-55;
+				
+				y += 30;
+				for(int i=0; i<11; i++)
+				{
+					blocks.add(new Block(x, y, 50, 30, new Color((int)(255.0*Math.random()), (int)(255.0*Math.random()), (int)(255.0*Math.random()))));
+					y+=31;
+				}
+				
+				y=y-33;
+				x  -= 50;
+				for(int i = 0; i<9; i++)
+				{
+					blocks.add(new Block(x, y, 50, 30, new Color((int)(255.0*Math.random()), (int)(255.0*Math.random()), (int)(255.0*Math.random()))));
+					x -= 50;
+				}
+				
+				y  -= 30;
+				x=x+55;
+				
+				for(int i = 0; i<10; i++)
+				{
+					blocks.add(new Block(x, y, 50, 30, new Color((int)(255.0*Math.random()), (int)(255.0*Math.random()), (int)(255.0*Math.random()))));
+					y -= 31;
+				}
+				
+			}
+	   }
+   
 
    public void paint(Graphics window)
    {
+	   	
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
 
@@ -78,7 +182,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 		graphToBack.setColor(Color.WHITE);
-		graphToBack.fillRect(400, 0, 200, 100);
+		graphToBack.fillRect(600, 0, 200, 100);
+		graphToBack.setColor(Color.BLACK);
+		graphToBack.drawString("Score: " + score, 630, 70);
+
 		//graphToBack.setColor(Color.BLACK);
 		//graphToBack.drawString(" left score: " + leftScore, 200, 20);
 		//graphToBack.drawString(" right score: " + rightScore, 200, 40);
@@ -94,7 +201,37 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//leftPaddle.draw(graphToBack);
 		//rightPaddle.draw(graphToBack);
 		newPaddle.draw(graphToBack);
+		
+		for(int i=0; i<blocks.size(); i++)
+	   	{
+	   		blocks.get(i).draw(graphToBack);
+	   		
+	   	}
+		
+		if(blocks.size()==0)
+		{
+			graphToBack.setColor(Color.BLACK);
+			graphToBack.drawString("LEVEL: 1", 200, 200);
+			level++;
+			buildBlocks(level);
+		}
+		
+		if(score==3)
+		{
+			graphToBack.setColor(Color.WHITE);
+			graphToBack.fillRect(180, 180, 100, 50);
+			graphToBack.setColor(Color.BLACK);
+			graphToBack.drawString("LEVEL: 2", 200, 200);
+			level++;
+			buildBlocks(level);
+		}
+		//60
+		   
 
+
+
+				
+		
 
 		//see if ball hits left wall or right wall
 		
@@ -143,14 +280,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 
 
-		//see if the ball hits the left paddle
 		if ( ball.didCollideLeft(newPaddle))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
 		}
 		
-		
-		//see if the ball hits the right paddle
 		if ( ball.didCollideRight(newPaddle))
 		{
 			ball.setXSpeed(-ball.getXSpeed());	
@@ -164,6 +298,50 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		if ( ball.didCollideBottom(newPaddle))
 		{
 			ball.setYSpeed(-ball.getYSpeed());	
+		}
+		
+		
+		
+		for(int i=0; i<blocks.size(); i++)
+		{
+			if ( ball.didCollideLeft(blocks.get(i)))
+			{
+				blocks.get(i).setColor(Color.WHITE);
+				blocks.get(i).draw(graphToBack);
+				ball.setXSpeed(-ball.getXSpeed());
+	
+				
+				blocks.remove(i);
+				score++;
+			}
+			
+			if ( ball.didCollideRight(blocks.get(i)))
+			{
+				blocks.get(i).setColor(Color.WHITE);
+				blocks.get(i).draw(graphToBack);
+				ball.setXSpeed(-ball.getXSpeed());	
+
+				blocks.remove(i);
+				score++;
+			}
+			
+			if ( ball.didCollideTop(blocks.get(i)))
+			{
+				blocks.get(i).setColor(Color.WHITE);
+				blocks.get(i).draw(graphToBack);
+				ball.setYSpeed(-ball.getYSpeed());
+				blocks.remove(i);
+				score++;
+			}
+			
+			if ( ball.didCollideBottom(blocks.get(i)))
+			{
+				blocks.get(i).setColor(Color.WHITE);
+				blocks.get(i).draw(graphToBack);
+				ball.setYSpeed(-ball.getYSpeed());	
+				blocks.remove(i);
+				score++;
+			}
 		}
 		
 		
@@ -200,10 +378,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		switch(toUpperCase(e.getKeyChar()))
 		{
-			case 'W' : keys[0]=true; break;
-			case 'Z' : keys[1]=true; break;
-			case 'I' : keys[2]=true; break;
-			case 'M' : keys[3]=true; break;
+			case 'I' : keys[0]=true; break;
+			case 'K' : keys[1]=true; break;
+			case 'J' : keys[2]=true; break;
+			case 'L' : keys[3]=true; break;
 		}
 	}
 
@@ -211,10 +389,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		switch(toUpperCase(e.getKeyChar()))
 		{
-			case 'W' : keys[0]=false; break;
-			case 'Z' : keys[1]=false; break;
-			case 'I' : keys[2]=false; break;
-			case 'M' : keys[3]=false; break;
+			case 'I' : keys[0]=false; break;
+			case 'K' : keys[1]=false; break;
+			case 'J' : keys[2]=false; break;
+			case 'L' : keys[3]=false; break;
 		}
 	}
 

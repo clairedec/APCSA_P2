@@ -15,7 +15,7 @@ public class Ball extends Block implements Collidable
 	public Ball()
 	{
 		super(200,200);
-		xSpeed = 2;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 
@@ -24,7 +24,7 @@ public class Ball extends Block implements Collidable
 	public Ball(int x, int y)
 	{
 		super(x,y);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 		
 	}
@@ -32,14 +32,14 @@ public class Ball extends Block implements Collidable
 	public Ball(int x, int y, int wid, int ht)
 	{
 		super(x, y, wid, ht);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	
 	public Ball(int x, int y, int wid, int ht, Color col)
 	{
 		super(x, y, wid, ht, col);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	
@@ -113,20 +113,39 @@ public class Ball extends Block implements Collidable
 	
 	public boolean didCollideLeft(Object obj)
 	{
-		Block rhs = (Block) obj;
+		/*Block rhs = (Block) obj;
 		if(this.getX()<=rhs.getX()+rhs.getWidth()-this.getXSpeed() && this.getY()>=rhs.getY() && this.getY()<=rhs.getY()+rhs.getHeight())
 		{
 		return true;
 		}
-		return false;
+		return false;*/
+
+		Block rhs = (Block) obj;
+	
+		if(this.getX()<=rhs.getX()+rhs.getWidth()-this.getXSpeed() && this.getX()>=rhs.getX()+rhs.getWidth()+this.getXSpeed()-5
+		&& this.getY()+this.getHeight()>=rhs.getY()
+		&& this.getY()<=rhs.getY()+rhs.getHeight()
+		&& this.getXSpeed() < 0){
+			return true;
+		}
+			return false;
 	}
 	
 	public boolean didCollideRight(Object obj)
 	{
-		Block rhs = (Block) obj;
+		/*Block rhs = (Block) obj;
 		if(this.getX()+this.getWidth()>=rhs.getX()-this.getXSpeed() && this.getY()>=rhs.getY() && this.getY()<=rhs.getY()+rhs.getHeight())
 		{
 		return true;
+		}
+		return false;*/
+		Block rhs = (Block) obj;
+			
+		if(this.getX()+this.getWidth()>=rhs.getX()-this.getXSpeed() && this.getX()+this.getWidth()<=rhs.getX()+this.getXSpeed()+5
+		&& this.getY()+this.getHeight()>=rhs.getY()
+		&& this.getY()<=rhs.getY()+rhs.getHeight()
+		&& this.getXSpeed() > 0){
+			return true;
 		}
 		return false;
 		
@@ -134,24 +153,45 @@ public class Ball extends Block implements Collidable
 	
 	public boolean didCollideTop(Object obj)
 	{
-		Block rhs = (Block) obj;
+		/*Block rhs = (Block) obj;
 		if((this.getY()<=rhs.getY()+this.getHeight()+rhs.getHeight() && this.getY()>=rhs.getY()+rhs.getHeight())
 			&& this.getX()>=rhs.getX() && this.getX()<=rhs.getX()+rhs.getWidth())
 		{
 		return true;
 		}
-		return false;
+		return false;*/
+		Block rhs = (Block) obj;
 		
+
+		
+		if((this.getY()<=rhs.getY()+rhs.getHeight()-this.getYSpeed() && this.getY()>=rhs.getY()+this.getYSpeed())
+				&& this.getX()>=rhs.getX() && this.getX()+this.getWidth()<=rhs.getX()+rhs.getWidth()
+				&& this.getYSpeed() < 0){
+			return true;
+		}
+		return false;
+
 	}
 	
 	public boolean didCollideBottom(Object obj)
 	{
-		Block rhs = (Block) obj;
+		/*Block rhs = (Block) obj;
 		if((this.getY()<=rhs.getY()+this.getHeight() && this.getY()>=rhs.getY())
 			&& this.getX()>=rhs.getX() && this.getX()<=rhs.getX()+rhs.getWidth())
 		{
 		return true;
 		}	
+		return false;*/
+		
+		Block rhs = (Block) obj;
+		
+
+		
+		if((this.getY()+this.getHeight()>=rhs.getY()-this.getYSpeed() && this.getY()+this.getHeight()<=rhs.getY()+this.getYSpeed()+5)
+				&& this.getX()>=rhs.getX() && this.getX()+this.getWidth()<=rhs.getX()+rhs.getWidth()
+				&& this.getYSpeed() > 0){
+			return true;
+		}
 		return false;
 	}
 }
